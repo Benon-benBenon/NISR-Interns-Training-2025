@@ -1,3 +1,6 @@
+![DashBoard Picture](https://github.com/Benon-benBenon/NISR-Interns-Training-2025/blob/main/dashboard.png)
+
+
 # **Firtst Method**
 ---
 
