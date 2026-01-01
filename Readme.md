@@ -1,5 +1,6 @@
 ![DashBoard Picture](https://github.com/Benon-benBenon/NISR-Interns-Training-2025/blob/main/dashboard.png)
 
+*If you want to have this dashboard, please follow the steps as mentioned below:*
 
 # **Firtst Method**
 ---
