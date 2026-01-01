@@ -174,6 +174,28 @@ data folder
 ```bash
 python manage.py runserver
 ```
+---
+---
+### Second Method
+---
+### `STEP 1:` Install necessary library
+### copy and paste the following command:
 
+```bash
+pip install numpy
+pip install pandas
+pip install Django
+```
+### `STEP 2:` Clone the project
+
+```bash
+https://github.com/Benon-benBenon/NISR-Interns-Training-2025.git
+```
+### `STEP 3:` Then in the terminal inside `working directory` run the following command.
+```bash
+python manage.py runserver
+```
+---
 ### END.
 ### You will see your dashboard.
+---
