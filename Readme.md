@@ -1,5 +1,5 @@
 ### Firtst Method
-```
+---
 
 ### `STEP 1:` Install necessary library
 ### copy and paste the following command:
