@@ -1,0 +1,69 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+
+# ==========================
+# Virtual Environments
+# ==========================
+car_venv/
+
+# ==========================
+# Django
+# ==========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Django cache
+.cache/
+*.sqlite3
+
+# ==========================
+# Environment Variables
+# ==========================
+.env
+.env.*
+
+
+# ==========================
+# Jupyter / Pandas
+# ==========================
+.ipynb_checkpoints/
+*.parquet
+*.feather
+
+# ==========================
+# Data Files (IMPORTANT)
+# ==========================
+data/*.csv
+data/*.xlsx
+data/*.xls
+data/*.json
+
+# Keep folder but ignore data
+!data/.gitkeep
+
+# ==========================
+# IDE / Editors
+# ==========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==========================
+# OS
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Coverage / Testing
+# ==========================
+.coverage
+htmlcov/
+.pytest_cache/

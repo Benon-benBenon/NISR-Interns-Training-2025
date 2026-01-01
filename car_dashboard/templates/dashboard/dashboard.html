@@ -1,0 +1,209 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Car Price Dashboard</h2>
+
+<!-- ================= FILTER PANEL ================= -->
+<div class="filter-panel mb-4 p-3 rounded">
+
+  <h6 class="mb-3 text-success fw-bold">Filters</h6>
+
+  <form method="get" class="row g-3">
+
+    <!-- Fuel Filter -->
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Fuel Type</label>
+      <select name="fuel" class="form-select">
+        <option value="">All</option>
+        {% for f in fuel_list %}
+          <option value="{{ f }}" {% if request.GET.fuel == f %}selected{% endif %}>
+            {{ f }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Transmission Filter -->
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Transmission</label>
+      <select name="transmission" class="form-select">
+        <option value="">All</option>
+        <option value="Manual" {% if request.GET.transmission == "Manual" %}selected{% endif %}>
+          Manual
+        </option>
+        <option value="Automatic" {% if request.GET.transmission == "Automatic" %}selected{% endif %}>
+          Automatic
+        </option>
+      </select>
+    </div>
+
+    <!-- Year Filter -->
+    <div class="col-md-3">
+      <label class="form-label fw-semibold">Year</label>
+      <select name="year" class="form-select">
+        <option value="">All</option>
+        {% for y in years %}
+          <option value="{{ y }}" {% if request.GET.year == y|stringformat:"s" %}selected{% endif %}>
+            {{ y }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <!-- Buttons -->
+    <div class="col-md-3 align-self-end">
+      <button class="btn btn-success w-100 mb-2">Apply Filters</button>
+      <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary w-100">
+        Reset
+      </a>
+    </div>
+
+  </form>
+</div>
+
+<!-- ================= KPI CARDS ================= -->
+<div class="row mb-4">
+
+  <div class="col-md-4">
+    <div class="card bg-primary text-white shadow text-center">
+      <div class="card-body">
+        <h6>Total Cars</h6>
+        <h2 class="fw-bold">{{ kpis.total_cars }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-success text-white shadow text-center">
+      <div class="card-body">
+        <h6>Average Price</h6>
+        <h2 class="fw-bold">{{ kpis.avg_price }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card bg-warning text-dark shadow text-center">
+      <div class="card-body">
+        <h6>Max Price</h6>
+        <h2 class="fw-bold">{{ kpis.max_price }}</h2>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= CHARTS ================= -->
+<div class="row">
+
+  <!-- Avg Selling Price by Fuel -->
+  <div class="col-md-6 mb-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">Average Selling Price by Fuel</h6>
+        <canvas id="fuelPriceChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fuel vs Transmission -->
+  <div class="col-md-6 mb-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">Fuel Type vs Transmission</h6>
+        <canvas id="fuelTransmissionChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- Fuel vs Seller Type -->
+  <div class="col-md-6 mb-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3">Fuel Type vs Seller Type</h6>
+        <canvas id="fuelSellerChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= CHART.JS ================= -->
+<script>
+
+new Chart(document.getElementById('fuelPriceChart'), {
+    type: 'bar',
+    data: {
+        labels: {{ fuel_labels|safe }},
+        datasets: [{
+            label: 'Avg Selling Price',
+            data: {{ fuel_values|safe }},
+            backgroundColor: '#0d6efd'
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+new Chart(document.getElementById('fuelTransmissionChart'), {
+    type: 'bar',
+    data: {
+        labels: {{ fuel_trans_labels|safe }},
+        datasets: [
+            {
+                label: 'Manual',
+                data: {{ fuel_trans_manual|safe }},
+                backgroundColor: '#198754'
+            },
+            {
+                label: 'Automatic',
+                data: {{ fuel_trans_auto|safe }},
+                backgroundColor: '#dc3545'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+new Chart(document.getElementById('fuelSellerChart'), {
+    type: 'bar',
+    data: {
+        labels: {{ fuel_seller_labels|safe }},
+        datasets: [
+            {
+                label: 'Dealer',
+                data: {{ fuel_seller_dealer|safe }},
+                backgroundColor: '#6f42c1'
+            },
+            {
+                label: 'Individual',
+                data: {{ fuel_seller_individual|safe }},
+                backgroundColor: '#fd7e14'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+
+</script>
+
+{% endblock %}
