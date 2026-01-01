@@ -1,4 +1,4 @@
-### Firtst Method
+# **Firtst Method**
 ---
 
 ### `STEP 1:` Install necessary library
@@ -176,7 +176,7 @@ python manage.py runserver
 ```
 ---
 ---
-### Second Method
+# **Second Method**
 ---
 ### `STEP 1:` Install necessary library
 ### copy and paste the following command:
