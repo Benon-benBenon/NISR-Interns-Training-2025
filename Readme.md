@@ -186,7 +186,7 @@ pip install numpy
 pip install pandas
 pip install Django
 ```
-### `STEP 2:` Clone the project
+### `STEP 2:` Clone the project and open it in `code editor` (eg, VS Code, etc)
 
 ```bash
 https://github.com/Benon-benBenon/NISR-Interns-Training-2025.git
