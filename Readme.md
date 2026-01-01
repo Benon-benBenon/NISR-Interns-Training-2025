@@ -186,11 +186,13 @@ pip install numpy
 pip install pandas
 pip install Django
 ```
-### `STEP 2:` Clone the project and open it in `code editor` (eg, VS Code, etc)
+### `STEP 2:` Clone the project and then open cloned directory then delete a `Jupyter notebook` file.
 
 ```bash
 https://github.com/Benon-benBenon/NISR-Interns-Training-2025.git
 ```
+##### **And then open that directory in `code editor` (eg, VS Code, etc)** [for Datasgboard] but if you want to learn basic python, please keep and consider `Juyter notebook file`.
+
 ### `STEP 3:` Then in the terminal inside `working directory` run the following command.
 ```bash
 python manage.py runserver
