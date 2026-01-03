@@ -2,7 +2,7 @@
 
 *If you want to have this dashboard, please follow the steps as mentioned below:*
 
-# **1^^st^^ Method**
+# **1^st^ Method**
 ---
 
 ### `STEP 1:` Install necessary library
