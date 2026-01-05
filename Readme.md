@@ -205,3 +205,9 @@ python manage.py runserver
 ### END.
 ### You will see your dashboard.
 ---
+
+### Python
+```python
+(img_storage_venv) (base) ben@master:~/Desktop/mongo_image_store/mongo_project$ python manage.py upload_images   --csv /home/ben/Desktop/Store_image_in_mongodb/synthetic_final_cleaned_new_dataset.csv   --images /home/ben/Desktop/Store_image_in_mongodb/NE
+W_IMAGES   --chunksize 10
+```
